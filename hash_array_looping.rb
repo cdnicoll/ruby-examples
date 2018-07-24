@@ -72,4 +72,63 @@ cars.each do |key, values|
   end
 end
 
+puts "\n------------------------------------------------\n"
+# get only unique values from a multi-di hash
+
+FILTER_TYPES  = {
+  text: [
+    {text: "contains", value: "cont"},
+    {text: "does not contain", value: "not_cont"},
+    {text: "is", value: "cont_all"},
+    {text: "is not", value: "not_cont_all"},
+    {text: "begins with", value: "start"},
+    {text: "ends with", value: "end"},
+    {text: "in", value: "in"}
+  ],
+  date: [
+    {text: "is", value: "cont_all"},
+    {text: "is not", value: "not_cont_all"},
+    #{text: "is after", value: ""},
+    #{text: "is before", value: ""},
+    # {text: "in the last", value: ""} # this will need an additional filter (days, months, years)
+    # {text: "not in the last", value: ""} # this will need an additional filter (days, months, years)
+    #"is in the range" # (note this will need to add an additional filter input field)
+  ],
+  int: [
+    {text: "is", value: "cont_all"},
+    {text: "is not", value: "not_cont_all"},
+    {text: "is greater than", value: "gt"},
+    {text: "is less than", value: "lt"}
+    #"is in the range" // (note this will need to add an additional filter input field)
+  ],
+  bool: [
+    {text: "is true",  value: "true"},
+    {text: "is false", value: "false"},
+    {text: "is blank", value: "blank"}
+  ]
+}
+
+#puts FILTER_TYPES.collect{|k,v| puts v}
+#p FILTER_TYPES.reverse.map{|x| x[0]}
+#p FILTER_TYPES.map.with_object({}) {|k,v| v[k[0]] = k }.values
+FILTER_TYPES.map.with_object({}) do |k,v|
+  #p k[k[0]]
+  #p v[]
+end
+
+#p FILTER_TYPES[:text].flatten
+
+FILTER_TYPES.each_with_index do |k,v|
+  p FILTER_TYPES[k[v]]
+
+end
+
+all_filters = []
+FILTER_TYPES.each do |key,value|
+  value.each do |k, v|
+    all_filters.push(k[:value])
+  end
+end
+
+p all_filters.uniq!
 
