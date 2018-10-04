@@ -58,3 +58,10 @@ puts ""
 foo.each do |key|
   puts "key: #{key}"
 end
+
+
+puts "------------------------------------------------"
+# explodes a string
+fruits = "apple, bannana, grapes, orange"
+split_fruit = fruits.split(', ') # note to capture the space
+puts split_fruit
