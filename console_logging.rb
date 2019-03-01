@@ -21,3 +21,7 @@ elements = [10, 100, 1000]
 puts elements
 # Print all array elements on the same line
 p elements
+
+# print out variable in line
+x = 10
+puts "total of x: #{x}"
